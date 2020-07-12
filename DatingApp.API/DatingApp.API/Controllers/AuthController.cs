@@ -62,7 +62,7 @@ namespace DatingApp.API.Controllers
 
 
             if (user == null)
-                return Unauthorized();
+                return Ok("parola gresita");
 
             var claims = new[]
             {
