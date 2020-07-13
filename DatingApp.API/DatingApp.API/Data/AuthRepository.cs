@@ -34,31 +34,11 @@ namespace DatingApp.API.Data
 
         private bool VerifyPassword(string password, byte[] userPasswordHash, byte[] userPasswordSalt)
         {
-            Console.WriteLine("Parola este: " + password+ "  leghth: " +password.Length);
-
-           Console.WriteLine(password.ElementAt(password.Length-1));
+           
 
             using (var hmac = new System.Security.Cryptography.HMACSHA512(userPasswordSalt))
             {
                 var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-
-
-                Console.WriteLine("Computed Hash : ");
-                for (int i = 0; i < computedHash.Length; i++)
-                {
-                    Console.Write(computedHash[i] + " ");
-
-                }
-                Console.WriteLine("\n\n Password Hash");
-
-                for (int i = 0; i < userPasswordHash.Length; i++)
-                {
-                    Console.Write(userPasswordHash[i]+ " ");
-
-                }
-               
-                Console.WriteLine();
-
                 for (int i = 0; i < computedHash.Length; i++)
                 {
                     if (computedHash[i] != userPasswordHash[i])
@@ -68,7 +48,7 @@ namespace DatingApp.API.Data
                     }
                 }
 
-                Console.WriteLine("\n\n");
+           
             }
 
             return true;
