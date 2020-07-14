@@ -57,7 +57,7 @@ namespace DatingApp.API.Controllers
 
         public async Task<IActionResult> Login(UserDtoLogin userDtoLogin)
         {
-            throw new Exception("computewr says no");
+            
 
             var user = await _repo.Login(userDtoLogin.Username.ToLower(), userDtoLogin.Password);
 
