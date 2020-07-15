@@ -7,9 +7,18 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200708195141_InitialCreate.cs" />
     <Compile Remove="Migrations\20200708195141_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200715025214_ExtendedUser.cs" />
+    <Compile Remove="Migrations\20200715025214_ExtendedUser.Designer.cs" />
+    <Compile Remove="Migrations\20200715031506_ExtendedUser.cs" />
+    <Compile Remove="Migrations\20200715031506_ExtendedUser.Designer.cs" />
+    <Compile Remove="Migrations\20200715035806_ExtendedUser.cs" />
+    <Compile Remove="Migrations\20200715035806_ExtendedUser.Designer.cs" />
+    <Compile Remove="Migrations\20200715114411_new.cs" />
+    <Compile Remove="Migrations\20200715114411_new.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="jose-jwt" Version="2.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
