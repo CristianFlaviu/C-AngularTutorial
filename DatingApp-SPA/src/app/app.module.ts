@@ -14,33 +14,56 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { MemberListComponent } from './member-list/member-list.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
+import { MemberCardComponent } from './members/member-card/member-card.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { MemeberDetailedComponent } from './members/memeber-detailed/memeber-detailed.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { MemberDetailResolver } from './_resolver/member-detail.resolver';
+import { NgxGalleryModule } from 'ngx-gallery';
+
+export function tokenGetter1() {
+   return localStorage.getItem('token');
+}
+
 @NgModule({
    declarations: [
       AppComponent,
-
       NavComponent,
       HomeComponent,
       RegisterComponent,
       MemberListComponent,
       ListsComponent,
-      MessagesComponent
+      MessagesComponent,
+      MemberCardComponent,
+      MemeberDetailedComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
       BrowserAnimationsModule,
+      JwtModule.forRoot({
+         config: {
+           tokenGetter: tokenGetter1,
+           allowedDomains: ['localhost:5000'],
+           disallowedRoutes: ['localhost:5000/auth'],
+         },
+       }),
       BsDropdownModule.forRoot(),
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
+      TabsModule.forRoot(),
+      NgxGalleryModule,
    ],
    providers: [
       AuthService,
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
+      MemberDetailResolver
+
    ],
    bootstrap: [
       AppComponent

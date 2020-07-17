@@ -51,11 +51,6 @@ namespace DatingApp.API.Controllers
         }
 
       
-        [HttpGet("abcd")]
-        public async Task<IActionResult> GetValue2(int id)
-        {
-
-            return Ok("ana");
-        }
+        
     }
 }
